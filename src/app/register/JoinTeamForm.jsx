@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { 
   Users, 
@@ -26,6 +26,7 @@ import {
 import { Tape, Pin } from "@/components/HandDrawnSvg";
 
 export default function JoinTeamForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialCode = searchParams.get("code") || "";
 
@@ -92,7 +93,8 @@ export default function JoinTeamForm() {
     setIsSubmitting(false);
 
     if (res.success) {
-      setResult(res);
+      const targetCode = res.team?.teamCode || formData.teamCode.toUpperCase();
+      router.push(`/team/${targetCode}`);
     } else {
       setFormError(res.error || "Failed to join squad. Please verify your team code.");
     }

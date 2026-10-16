@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { 
   Rocket, 
   PenTool, 
@@ -28,6 +29,7 @@ import {
 import { Tape, Pin } from "@/components/HandDrawnSvg";
 
 export default function CreateTeamForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     teamName: "",
     name: "",
@@ -85,7 +87,10 @@ export default function CreateTeamForm() {
     const res = await createTeamAction(formData);
     setIsSubmitting(false);
 
-    if (res.success) {
+    const targetCode = res.teamCode || res.team?.teamCode;
+    if (res.success && targetCode) {
+      router.push(`/team/${targetCode}`);
+    } else if (res.success) {
       setResult(res);
     } else {
       setFormError(res.error || "Failed to create team. Please try again.");

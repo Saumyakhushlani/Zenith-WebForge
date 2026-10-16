@@ -52,109 +52,211 @@ export async function sendBrevoEmail({ to, subject, htmlContent, textContent }) 
 }
 
 // -----------------------------------------------------------------------------
-// SWISS INTERNATIONAL EMAIL TEMPLATES
+// HAND-DRAWN SKETCHBOOK EMAIL TEMPLATES
 // -----------------------------------------------------------------------------
 
 export function generateTeamCreatedEmail({ teamName, teamCode, leaderName, appUrl }) {
-  const joinUrl = `${appUrl || "http://localhost:3000"}/register/join?code=${teamCode}`;
+  const baseUrl = appUrl || "https://zenith-webforge.vercel.app";
+  const joinUrl = `${baseUrl}/register/join?code=${teamCode}`;
+  const passUrl = `${baseUrl}/team/${teamCode}`;
   
   return {
-    subject: `[WEB FORGE] Team Registered: ${teamName} (Code: ${teamCode})`,
+    subject: `[WEB FORGE] Squad Registered: ${teamName} (Code: ${teamCode})`,
     htmlContent: `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <style>
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F2F2F2; margin: 0; padding: 24px; color: #000000; }
-    .container { max-width: 600px; margin: 0 auto; background: #FFFFFF; border: 4px solid #000000; padding: 32px; }
-    .header-tag { font-size: 11px; letter-spacing: 3px; font-weight: 700; color: #FF3000; text-transform: uppercase; margin-bottom: 8px; }
-    .title { font-size: 32px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; margin: 0 0 16px 0; line-height: 1.1; }
-    .code-box { background: #000000; color: #FFFFFF; padding: 24px; margin: 24px 0; border-left: 8px solid #FF3000; }
-    .code-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #FF3000; font-weight: 700; }
-    .code-val { font-size: 36px; font-weight: 900; letter-spacing: 4px; font-family: monospace; margin: 8px 0; }
-    .instructions { font-size: 14px; line-height: 1.6; color: #333333; margin: 20px 0; border-top: 2px solid #000000; padding-top: 20px; }
-    .btn { display: inline-block; background: #FF3000; color: #FFFFFF; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 14px 24px; text-decoration: none; border: 2px solid #000000; margin-top: 16px; }
-    .footer { margin-top: 32px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #777777; border-top: 1px solid #DDDDDD; padding-top: 16px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Forge 2026 Squad Registered</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header-tag">ZENITH CODING SOCIETY // MANIT BHOPAL</div>
-    <h1 class="title">WEB FORGE PROTOCOL // TEAM CREATED</h1>
-    
-    <p>Greetings <strong>${leaderName}</strong>,</p>
-    <p>Your team <strong>${teamName}</strong> has been successfully registered for <strong>Web Forge</strong>, the 12-hour high-intensity virtual hackathon at MANIT Bhopal.</p>
-    
-    <div class="code-box">
-      <div class="code-label">OFFICIAL TEAM CODE</div>
-      <div class="code-val">${teamCode}</div>
-      <p style="margin: 0; font-size: 12px; color: #CCCCCC;">Distribute this code to your team members so they can join your roster.</p>
-    </div>
+<body style="margin: 0; padding: 24px 12px; background-color: #fdfbf7; font-family: 'Patrick Hand', 'Comic Sans MS', 'Segoe Print', cursive, sans-serif; color: #2d2d2d;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fdfbf7;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #ffffff; border: 3px solid #2d2d2d; border-radius: 12px; box-shadow: 6px 6px 0px #2d2d2d; overflow: hidden; text-align: left;">
+          
+          <!-- Top Yellow Header -->
+          <tr>
+            <td style="background-color: #fff9c4; padding: 18px 24px; border-bottom: 2px dashed #2d2d2d;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td>
+                    <span style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 11px; font-weight: bold; letter-spacing: 1px; padding: 3px 8px; border: 1px solid #2d2d2d; border-radius: 4px; text-transform: uppercase;">
+                      MANIT Bhopal &bull; Zenith
+                    </span>
+                    <h1 style="margin: 8px 0 0 0; font-size: 28px; line-height: 1.1; font-weight: bold; color: #2d2d2d;">
+                      Web <span style="color: #ff4d4d;">Forge</span> 2026 !
+                    </h1>
+                  </td>
+                  <td align="right" valign="top">
+                    <span style="display: inline-block; background-color: #2d5da1; color: #ffffff; font-size: 11px; font-weight: bold; padding: 4px 8px; border: 1px solid #2d2d2d; border-radius: 4px;">
+                      22ND OCT 2026
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
 
-    <div class="instructions">
-      <h3 style="margin-top:0; text-transform: uppercase;">TEAM GUIDELINES:</h3>
-      <ul>
-        <li><strong>Team Size:</strong> Squad size is strictly 3 members (Leader + 2 teammates).</li>
-        <li><strong>Diversity Criteria:</strong> 1 female developer is strictly compulsory per 3-person squad.</li>
-        <li><strong>Event Format:</strong> Strictly virtual on Google Meet with continuous screen-sharing mandate (at least 1 active screen stream).</li>
-        <li><strong>AI Mandate:</strong> ChatGPT, Claude, GitHub Copilot, and Cursor are 100% allowed.</li>
-      </ul>
-      
-      <a href="${joinUrl}" class="btn">JOIN TEAM LINK</a>
-    </div>
+          <!-- Main Body -->
+          <tr>
+            <td style="padding: 28px 24px; font-size: 17px; line-height: 1.5; color: #2d2d2d;">
+              <p style="margin: 0 0 16px 0; font-size: 19px;">
+                Hey <strong>${leaderName}</strong>,
+              </p>
+              <p style="margin: 0 0 20px 0;">
+                Your squad <strong>&ldquo;${teamName}&rdquo;</strong> has been successfully registered for <strong>Web Forge 2026</strong> &mdash; the 12-hour high-intensity virtual coding sprint hosted by <strong>Zenith</strong>, the official programming club of MANIT Bhopal.
+              </p>
 
-    <div class="footer">
-      ZENITH CODING SOCIETY • MAULANA AZAD NATIONAL INSTITUTE OF TECHNOLOGY (MANIT), BHOPAL<br/>
-      Contact &amp; Support: <a href="mailto:zenith.nitb.manit@gmail.com" style="color: #2D5DA1; text-decoration: none; font-weight: bold;">zenith.nitb.manit@gmail.com</a>
-    </div>
-  </div>
+              <!-- Sticky Note Code Box -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0;">
+                <tr>
+                  <td style="background-color: #fff9c4; border: 3px dashed #2d2d2d; border-radius: 10px; padding: 20px; text-align: center;">
+                    <div style="font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #666666; margin-bottom: 4px;">
+                      Official Squad Code
+                    </div>
+                    <div style="font-size: 34px; font-weight: bold; letter-spacing: 4px; font-family: monospace, Courier, sans-serif; color: #2d2d2d; margin: 4px 0 8px 0;">
+                      ${teamCode}
+                    </div>
+                    <div style="font-size: 14px; color: #555555;">
+                      Send this code to your 2 batchmates so they can join your squad!
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Action Buttons -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0;">
+                <tr>
+                  <td align="center" style="padding-bottom: 12px;">
+                    <a href="${joinUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 24px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d; margin-right: 8px;">
+                      Direct Join Link &rarr;
+                    </a>
+                    <a href="${passUrl}" style="display: inline-block; background-color: #ffffff; color: #2d2d2d; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 20px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d;">
+                      View Squad Pass
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Rules & Guidelines -->
+              <div style="background-color: #fdfbf7; border: 2px solid #2d2d2d; border-radius: 8px; padding: 16px 20px; margin-top: 24px;">
+                <div style="font-size: 14px; font-weight: bold; text-transform: uppercase; color: #2d5da1; margin-bottom: 8px;">
+                  Quick Rules Checklist:
+                </div>
+                <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: #333333;">
+                  <li><strong>Event Date:</strong> 22nd October 2026 (08:30 AM to 09:15 PM).</li>
+                  <li><strong>Strict Squad Size:</strong> Exactly 3 members per squad (all MANIT UG students).</li>
+                  <li><strong>Diversity Compulsory:</strong> At least 1 female developer per squad is mandatory.</li>
+                  <li><strong>Screen Sharing:</strong> At least 1 team member must actively keep their screen shared in your Google Meet breakout room.</li>
+                  <li><strong>AI Tools Allowed:</strong> Cursor, Claude, and Copilot are 100% encouraged!</li>
+                </ul>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #fdfbf7; padding: 18px 24px; border-top: 2px dashed #2d2d2d; font-size: 13px; color: #666666; line-height: 1.5;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td>
+                    <strong>Zenith &bull; Programming Club</strong><br/>
+                    Maulana Azad National Institute of Technology (MANIT), Bhopal<br/>
+                    Questions or Support: <a href="mailto:zenith.nitb.manit@gmail.com" style="color: #2d5da1; font-weight: bold; text-decoration: none;">zenith.nitb.manit@gmail.com</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
     `,
   };
 }
 
-export function generateMemberJoinedEmail({ teamName, teamCode, memberName, leaderEmail, leaderName }) {
+export function generateMemberJoinedEmail({ teamName, teamCode, memberName, leaderEmail, leaderName, appUrl }) {
+  const baseUrl = appUrl || "https://zenith-webforge.vercel.app";
+  const passUrl = `${baseUrl}/team/${teamCode}`;
+
   return {
-    subject: `[WEB FORGE] You Joined Team: ${teamName}`,
+    subject: `[WEB FORGE] You Joined Squad: ${teamName}`,
     htmlContent: `
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <style>
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #F2F2F2; margin: 0; padding: 24px; color: #000000; }
-    .container { max-width: 600px; margin: 0 auto; background: #FFFFFF; border: 4px solid #000000; padding: 32px; }
-    .header-tag { font-size: 11px; letter-spacing: 3px; font-weight: 700; color: #FF3000; text-transform: uppercase; margin-bottom: 8px; }
-    .title { font-size: 30px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; margin: 0 0 16px 0; }
-    .details { background: #F2F2F2; border: 2px solid #000000; padding: 20px; margin: 20px 0; }
-    .footer { margin-top: 32px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #777777; border-top: 1px solid #DDDDDD; padding-top: 16px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joined Web Forge Squad</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header-tag">ZENITH CODING SOCIETY // MANIT BHOPAL</div>
-    <h1 class="title">WEB FORGE // ROSTER CONFIRMATION</h1>
-    
-    <p>Hello <strong>${memberName}</strong>,</p>
-    <p>You have successfully joined the team <strong>${teamName}</strong> for <strong>Web Forge</strong>.</p>
-    
-    <div class="details">
-      <p style="margin: 0 0 8px 0;"><strong>Team Name:</strong> ${teamName}</p>
-      <p style="margin: 0 0 8px 0;"><strong>Team Code:</strong> ${teamCode}</p>
-      ${leaderName ? `<p style="margin: 0;"><strong>Team Leader:</strong> ${leaderName} (${leaderEmail})</p>` : ''}
-    </div>
+<body style="margin: 0; padding: 24px 12px; background-color: #fdfbf7; font-family: 'Patrick Hand', 'Comic Sans MS', 'Segoe Print', cursive, sans-serif; color: #2d2d2d;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #fdfbf7;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #ffffff; border: 3px solid #2d2d2d; border-radius: 12px; box-shadow: 6px 6px 0px #2d2d2d; overflow: hidden; text-align: left;">
+          
+          <!-- Top Yellow Header -->
+          <tr>
+            <td style="background-color: #fff9c4; padding: 18px 24px; border-bottom: 2px dashed #2d2d2d;">
+              <span style="display: inline-block; background-color: #2d5da1; color: #ffffff; font-size: 11px; font-weight: bold; letter-spacing: 1px; padding: 3px 8px; border: 1px solid #2d2d2d; border-radius: 4px; text-transform: uppercase;">
+                Squad Roster Confirmed
+              </span>
+              <h1 style="margin: 8px 0 0 0; font-size: 26px; line-height: 1.1; font-weight: bold; color: #2d2d2d;">
+                Welcome to <span style="color: #ff4d4d;">${teamName}</span> !
+              </h1>
+            </td>
+          </tr>
 
-    <p style="font-size: 14px; line-height: 1.6;">
-      Get ready for the 12-hour sprint! The event kick-off and problem statement reveal will take place on Google Meet. Keep in touch with your team leader.
-    </p>
+          <!-- Main Body -->
+          <tr>
+            <td style="padding: 28px 24px; font-size: 17px; line-height: 1.5; color: #2d2d2d;">
+              <p style="margin: 0 0 16px 0; font-size: 19px;">
+                Hey <strong>${memberName}</strong>,
+              </p>
+              <p style="margin: 0 0 20px 0;">
+                You have officially joined squad <strong>&ldquo;${teamName}&rdquo;</strong> for <strong>Web Forge 2026</strong> on <strong>22nd October 2026</strong>!
+              </p>
 
-    <div class="footer">
-      ZENITH CODING SOCIETY • MAULANA AZAD NATIONAL INSTITUTE OF TECHNOLOGY (MANIT), BHOPAL<br/>
-      Contact &amp; Support: <a href="mailto:zenith.nitb.manit@gmail.com" style="color: #2D5DA1; text-decoration: none; font-weight: bold;">zenith.nitb.manit@gmail.com</a>
-    </div>
-  </div>
+              <!-- Team Info Box -->
+              <div style="background-color: #fff9c4; border: 2px solid #2d2d2d; border-radius: 8px; padding: 16px 20px; margin: 20px 0;">
+                <p style="margin: 0 0 6px 0;"><strong>Squad Name:</strong> ${teamName}</p>
+                <p style="margin: 0 0 6px 0;"><strong>Official Code:</strong> <span style="font-family: monospace; font-size: 18px; font-weight: bold;">${teamCode}</span></p>
+                ${leaderName ? `<p style="margin: 0;"><strong>Squad Leader:</strong> ${leaderName} (${leaderEmail})</p>` : ''}
+              </div>
+
+              <!-- Button -->
+              <div style="text-align: center; margin: 24px 0;">
+                <a href="${passUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 24px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d;">
+                  Open Team Pass &rarr;
+                </a>
+              </div>
+
+              <p style="font-size: 15px; color: #555555; line-height: 1.6;">
+                Coordinate with your squad leader before kick-off on 22nd October. Make sure your team has 3 members and satisfies the 1 girl diversity requirement.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background-color: #fdfbf7; padding: 18px 24px; border-top: 2px dashed #2d2d2d; font-size: 13px; color: #666666; line-height: 1.5;">
+              <strong>Zenith &bull; Programming Club</strong><br/>
+              Maulana Azad National Institute of Technology (MANIT), Bhopal<br/>
+              Contact: <a href="mailto:zenith.nitb.manit@gmail.com" style="color: #2d5da1; font-weight: bold; text-decoration: none;">zenith.nitb.manit@gmail.com</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
     `,

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getTeamDetailsAction } from "@/app/actions/registration";
 import { ArrowLeft, Users, ShieldCheck, AlertCircle, Copy, Share2, Ticket, Check, AlertTriangle, ClipboardList } from "lucide-react";
 import { Tape, Pin, WavyUnderline } from "@/components/HandDrawnSvg";
+import ShareSquadCard from "./ShareSquadCard";
 
 export default async function TeamPassContent({ params }) {
   const { code } = await params;
@@ -92,6 +93,14 @@ export default async function TeamPassContent({ params }) {
 
           {/* Members Table */}
           <div className="p-5 sm:p-8 md:p-10">
+            {/* Share Code & Link Hub */}
+            <ShareSquadCard 
+              teamCode={team.teamCode} 
+              teamName={team.teamName} 
+              totalMembers={team.totalMembers} 
+              hasFemaleMember={team.hasFemaleMember} 
+            />
+
             <h3 className="text-xl sm:text-2xl font-kalam font-bold text-[#2d2d2d] mb-3 sm:mb-4 flex items-center gap-2">
               <span>Confirmed Squad Roster</span>
               <ClipboardList className="w-5 h-5 sm:w-6 sm:h-6 text-[#2d2d2d] flex-shrink-0" />
