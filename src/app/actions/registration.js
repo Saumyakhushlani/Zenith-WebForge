@@ -286,12 +286,14 @@ export async function joinTeamAction(data) {
         .maybeSingle();
 
       // Send confirmation to newly joined member
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://zenith-webforge.vercel.app";
       const memberEmailPayload = generateMemberJoinedEmail({
         teamName: team.team_name,
         teamCode: team.team_code,
         memberName: normalizedName,
         leaderEmail: leader?.email,
         leaderName: leader?.name,
+        appUrl,
       });
 
       await sendBrevoEmail({
@@ -325,6 +327,24 @@ export async function joinTeamAction(data) {
         scholar_number: normalizedScholar,
         gender: genderVal.gender,
         year: yearVal.year,
+      });
+
+      // Send confirmation email in mock mode as well
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || "https://zenith-webforge.vercel.app";
+      const leader = team.members.find((m) => m.role === "leader");
+      const memberEmailPayload = generateMemberJoinedEmail({
+        teamName: team.team_name,
+        teamCode: team.team_code,
+        memberName: normalizedName,
+        leaderEmail: leader?.email,
+        leaderName: leader?.name,
+        appUrl,
+      });
+
+      await sendBrevoEmail({
+        to: { email: normalizedEmail, name: normalizedName },
+        subject: memberEmailPayload.subject,
+        htmlContent: memberEmailPayload.htmlContent,
       });
 
       return {

@@ -129,13 +129,17 @@ export function generateTeamCreatedEmail({ teamName, teamCode, leaderName, appUr
               <!-- Action Buttons -->
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0;">
                 <tr>
-                  <td align="center" style="padding-bottom: 12px;">
-                    <a href="${joinUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 24px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d; margin-right: 8px;">
-                      Direct Join Link &rarr;
+                  <td align="center" style="padding-bottom: 8px;">
+                    <a href="${passUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 17px; font-weight: bold; text-decoration: none; padding: 14px 28px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 4px 4px 0px #2d2d2d;">
+                      Open Squad Pass &rarr;
                     </a>
-                    <a href="${passUrl}" style="display: inline-block; background-color: #ffffff; color: #2d2d2d; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 20px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d;">
-                      View Squad Pass
-                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <p style="margin: 8px 0 0 0; font-size: 13px; color: #666666;">
+                      Squad Link: <a href="${passUrl}" style="color: #2d5da1; font-weight: bold;">${passUrl}</a>
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -233,9 +237,12 @@ export function generateMemberJoinedEmail({ teamName, teamCode, memberName, lead
 
               <!-- Button -->
               <div style="text-align: center; margin: 24px 0;">
-                <a href="${passUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 16px; font-weight: bold; text-decoration: none; padding: 12px 24px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 3px 3px 0px #2d2d2d;">
-                  Open Team Pass &rarr;
+                <a href="${passUrl}" style="display: inline-block; background-color: #ff4d4d; color: #ffffff; font-size: 17px; font-weight: bold; text-decoration: none; padding: 14px 28px; border: 2px solid #2d2d2d; border-radius: 8px; box-shadow: 4px 4px 0px #2d2d2d;">
+                  Open Squad Pass &rarr;
                 </a>
+                <p style="margin: 8px 0 0 0; font-size: 13px; color: #666666;">
+                  Squad Link: <a href="${passUrl}" style="color: #2d5da1; font-weight: bold;">${passUrl}</a>
+                </p>
               </div>
 
               <p style="font-size: 15px; color: #555555; line-height: 1.6;">
