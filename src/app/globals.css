@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
+@theme {
+  --color-paper: #fdfbf7;
+  --color-pencil: #2d2d2d;
+  --color-erased: #e5e0d8;
+  --color-marker-red: #ff4d4d;
+  --color-pen-blue: #2d5da1;
+  --color-postit-yellow: #fff9c4;
+  --font-kalam: var(--font-kalam), cursive, sans-serif;
+  --font-patrick: var(--font-patrick), cursive, sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfbf7;
+  --foreground: #2d2d2d;
+  --border-lead: #2d2d2d;
+  --accent-red: #ff4d4d;
+  --accent-blue: #2d5da1;
+  --postit-yellow: #fff9c4;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-patrick), cursive, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-kalam), cursive, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Authentic Paper Texture Dot Pattern */
+.paper-dots {
+  background-color: #fdfbf7;
+  background-image: radial-gradient(#e5e0d8 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.notebook-lines {
+  background-size: 100% 28px;
+  background-image: linear-gradient(to bottom, transparent 27px, #e5e0d8 28px);
+}
+
+/* Wobbly Hand-Drawn Borders (NO STRAIGHT LINES) */
+.border-wobbly-sm {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important;
+}
+
+.border-wobbly-md {
+  border-radius: 20px 255px 20px 255px / 255px 20px 255px 20px !important;
+}
+
+.border-wobbly-lg {
+  border-radius: 255px 25px 225px 25px / 25px 225px 25px 255px !important;
+}
+
+.border-wobbly-alt {
+  border-radius: 125px 25px 135px 20px / 20px 145px 25px 125px !important;
+}
+
+.border-wobbly-circle {
+  border-radius: 50% 50% 50% 50% / 60% 50% 50% 40% !important;
+}
+
+.border-wobbly-pill {
+  border-radius: 255px 25px 225px 25px / 50% 50% 50% 50% !important;
+}
+
+/* Hard Offset Shadows (NO BLUR) */
+.shadow-hand {
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
+}
+
+.shadow-hand-lg {
+  box-shadow: 8px 8px 0px 0px #2d2d2d;
+}
+
+.shadow-hand-sm {
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+}
+
+.shadow-hand-red {
+  box-shadow: 5px 5px 0px 0px #ff4d4d;
+}
+
+.shadow-hand-blue {
+  box-shadow: 5px 5px 0px 0px #2d5da1;
+}
+
+.shadow-hand-subtle {
+  box-shadow: 3px 3px 0px 0px rgba(45, 45, 45, 0.15);
+}
+
+/* Interactive Hand-Drawn Buttons */
+.btn-hand {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  border: 3px solid #2d2d2d;
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
+  transition: transform 100ms ease, box-shadow 100ms ease, background-color 100ms ease;
+}
+
+.btn-hand:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+}
+
+.btn-hand:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px 0px #2d2d2d;
+}
+
+/* Scotch Tape Effect */
+.scotch-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  width: 90px;
+  height: 24px;
+  background-color: rgba(229, 224, 216, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-left: 2px dashed rgba(45, 45, 45, 0.3);
+  border-right: 2px dashed rgba(45, 45, 45, 0.3);
+  z-index: 20;
+}
+
+/* Thumbtack Pin */
+.push-pin {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  background-color: #ff4d4d;
+  border: 2px solid #2d2d2d;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+  z-index: 20;
+}
+
+.push-pin::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* Inputs matching wobbly handwritten style */
+input, select, textarea {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px !important;
+  font-family: var(--font-patrick), cursive, sans-serif !important;
+  font-size: 1.15rem !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none !important;
+  border-color: #2d5da1 !important;
+  box-shadow: 3px 3px 0px 0px #2d5da1 !important;
 }
