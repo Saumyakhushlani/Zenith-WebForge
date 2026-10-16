@@ -1,5 +1,6 @@
 import { Kalam, Patrick_Hand } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const kalam = Kalam({
   weight: ["400", "700"],
@@ -66,6 +67,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${kalam.variable} ${patrickHand.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-[#fdfbf7] text-[#2d2d2d] font-patrick antialiased selection:bg-[#fff9c4] selection:text-[#2d2d2d] paper-dots">
         {children}
+        <Analytics />
       </body>
     </html>
   );
