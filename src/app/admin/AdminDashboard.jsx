@@ -336,11 +336,13 @@ export default function AdminDashboard() {
             <div className="font-kalam font-bold text-sm text-zinc-700 mb-1">
               Year Cohorts (UG)
             </div>
-            <div className="grid grid-cols-2 gap-1 font-patrick text-base text-zinc-800">
-              <div>1st: <strong>{stats.yearCounts["1st Year"] || 0}</strong></div>
-              <div>2nd: <strong>{stats.yearCounts["2nd Year"] || 0}</strong></div>
-              <div>3rd: <strong>{stats.yearCounts["3rd Year"] || 0}</strong></div>
-              <div>4th: <strong>{stats.yearCounts["4th Year"] || 0}</strong></div>
+            <div className="grid grid-cols-2 gap-2 font-patrick text-base text-zinc-800">
+              <div className="bg-white p-2 border border-[#2d2d2d] border-wobbly-sm text-center">
+                1st Year: <strong>{stats.yearCounts["1st Year"] || 0}</strong>
+              </div>
+              <div className="bg-white p-2 border border-[#2d2d2d] border-wobbly-sm text-center">
+                2nd Year: <strong>{stats.yearCounts["2nd Year"] || 0}</strong>
+              </div>
             </div>
           </div>
         </div>

@@ -112,11 +112,11 @@ export function validateGender(gender) {
   return { isValid: true, gender };
 }
 
-// Year validation (UG only: 1st, 2nd, 3rd, 4th Year)
+// Year validation (UG only: 1st and 2nd Year)
 export function validateYear(year) {
-  const allowed = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
+  const allowed = ["1st Year", "2nd Year"];
   if (!year || !allowed.includes(year)) {
-    return { isValid: false, error: "Please select your academic year (1st, 2nd, 3rd, or 4th Year)." };
+    return { isValid: false, error: "Please select your academic year (1st or 2nd Year only)." };
   }
   return { isValid: true, year };
 }

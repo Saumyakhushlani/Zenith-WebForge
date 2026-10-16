@@ -311,13 +311,13 @@ export default function CreateTeamForm() {
                   )}
                 </div>
 
-                {/* Academic Year (UG ONLY) */}
+                {/* Academic Year (1st & 2nd Year Only) */}
                 <div>
                   <label className="block font-kalam font-bold text-base text-[#2d2d2d] mb-0.5">
-                    Academic Year * (Undergraduate)
+                    Academic Year * (1st &amp; 2nd Year Only)
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                    {["1st Year", "2nd Year", "3rd Year", "4th Year"].map((yr) => (
+                  <div className="grid grid-cols-2 gap-2">
+                    {["1st Year", "2nd Year"].map((yr) => (
                       <button
                         type="button"
                         key={yr}

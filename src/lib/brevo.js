@@ -151,7 +151,7 @@ export function generateTeamCreatedEmail({ teamName, teamCode, leaderName, appUr
                 </div>
                 <ul style="margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: #333333;">
                   <li><strong>Event Date:</strong> 22nd October 2026 (08:30 AM to 09:15 PM).</li>
-                  <li><strong>Strict Squad Size:</strong> Exactly 3 members per squad (all MANIT UG students).</li>
+                  <li><strong>Strict Squad Size:</strong> Exactly 3 members per squad (MANIT 1st &amp; 2nd Year UG students only).</li>
                   <li><strong>Diversity Compulsory:</strong> At least 1 female developer per squad is mandatory.</li>
                   <li><strong>Screen Sharing:</strong> At least 1 team member must actively keep their screen shared in your Google Meet breakout room.</li>
                   <li><strong>AI Tools Allowed:</strong> Cursor, Claude, and Copilot are 100% encouraged!</li>

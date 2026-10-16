@@ -299,7 +299,7 @@ export default function Home() {
               <ul className="space-y-3 font-patrick text-base sm:text-lg text-zinc-800">
                 <li className="flex items-start gap-2.5">
                   <School className="w-5 h-5 text-[#ff4d4d] flex-shrink-0 mt-0.5" />
-                  <span><strong>MANIT Students:</strong> Open to all UG engineers (1st to 4th Year).</span>
+                  <span><strong>MANIT Students:</strong> Open to 1st and 2nd Year UG engineers only.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <Users className="w-5 h-5 text-[#2d5da1] flex-shrink-0 mt-0.5" />

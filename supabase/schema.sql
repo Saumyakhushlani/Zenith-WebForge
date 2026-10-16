@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS public.team_members (
     phone VARCHAR(20) NOT NULL,
     scholar_number VARCHAR(30) NOT NULL UNIQUE,
     gender VARCHAR(20) NOT NULL CHECK (gender IN ('Female', 'Male', 'Other')),
-    year VARCHAR(20) NOT NULL CHECK (year IN ('1st Year', '2nd Year', '3rd Year', '4th Year')),
+    year VARCHAR(20) NOT NULL CHECK (year IN ('1st Year', '2nd Year')),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );
 

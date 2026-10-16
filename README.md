@@ -11,7 +11,7 @@
 - **Event Date:** 22nd October 2026
 - **Duration:** 12 Hours (08:30 AM to 09:15 PM)
 - **Format:** Virtual on Google Meet (Central Stage + Team Breakout Rooms)
-- **Eligibility:** Undergraduate engineering students of MANIT Bhopal
+- **Eligibility:** 1st and 2nd Year undergraduate engineering students of MANIT Bhopal
 - **Team Size:** Strictly 3 members per squad
 - **Diversity Mandate:** At least 1 female developer per squad is strictly compulsory
 - **Live Hacking Verification:** At least one team member must actively keep their screen shared in their Google Meet breakout room

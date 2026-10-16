@@ -15,13 +15,13 @@ const FAQ_ITEMS = [
   {
     id: "02",
     question: "Who is eligible to participate in Web Forge?",
-    answer: "Web Forge is exclusively open to all undergraduate engineering students of Maulana Azad National Institute of Technology (MANIT), Bhopal across all semesters and branches.",
+    answer: "Web Forge is exclusively open to 1st and 2nd year undergraduate engineering students of Maulana Azad National Institute of Technology (MANIT), Bhopal.",
     bg: "bg-white",
   },
   {
     id: "03",
     question: "What is the team size and diversity requirement?",
-    answer: "Squad size is strictly 3 members (all undergraduate engineering students of MANIT Bhopal). In accordance with Zenith's rules, having at least 1 female developer in your 3-person squad is strictly compulsory.",
+    answer: "Squad size is strictly 3 members (all 1st and 2nd year undergraduate engineering students of MANIT Bhopal). In accordance with Zenith's rules, having at least 1 female developer in your 3-person squad is strictly compulsory.",
     bg: "bg-[#fff9c4]", // post-it yellow
   },
   {

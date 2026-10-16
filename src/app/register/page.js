@@ -53,7 +53,7 @@ export default function RegisterHubPage() {
             <div className="mt-4 pt-3 border-t-2 border-dashed border-[#2d2d2d] flex items-start sm:items-center gap-2 text-xs sm:text-base font-patrick text-zinc-700">
               <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#ff4d4d] flex-shrink-0 mt-0.5 sm:mt-0" />
               <span>
-                <strong>Team Rule:</strong> Strictly 3 members per squad (1 Girl Compulsory, UG students only).
+                <strong>Team Rule:</strong> Strictly 3 members per squad (1 Girl Compulsory, 1st &amp; 2nd Year UG only).
               </span>
             </div>
           </div>

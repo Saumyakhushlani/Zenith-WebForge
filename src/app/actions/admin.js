@@ -105,11 +105,15 @@ export async function getAdminDashboardDataAction() {
 
     let totalParticipants = members.length;
     let teamsWithFemale = 0;
-    const yearCounts = { "1st Year": 0, "2nd Year": 0, "3rd Year": 0, "4th Year": 0 };
+    const yearCounts = { "1st Year": 0, "2nd Year": 0 };
     const genderCounts = { Female: 0, Male: 0, Other: 0 };
 
     members.forEach((m) => {
-      if (yearCounts[m.year] !== undefined) yearCounts[m.year]++;
+      if (yearCounts[m.year] !== undefined) {
+        yearCounts[m.year]++;
+      } else if (m.year) {
+        yearCounts[m.year] = 1;
+      }
       if (genderCounts[m.gender] !== undefined) genderCounts[m.gender]++;
     });
 
