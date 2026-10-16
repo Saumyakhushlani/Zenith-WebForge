@@ -14,7 +14,8 @@ export default function Header() {
     { label: "02. Itinerary", href: "/#itinerary" },
     { label: "03. Rules", href: "/#rules" },
     { label: "04. FAQ", href: "/#faq" },
-    { label: "05. Squad Roster", href: "/register?tab=lookup" },
+    { label: "05. Contacts", href: "/#contact" },
+    { label: "06. Squad Roster", href: "/register?tab=lookup" },
   ];
 
   return (

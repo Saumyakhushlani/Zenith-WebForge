@@ -31,7 +31,9 @@ import {
   Rocket,
   HelpCircle,
   PenTool,
-  Calendar
+  Calendar,
+  Phone,
+  Mail
 } from "lucide-react";
 import { 
   WavyUnderline, 
@@ -508,7 +510,105 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 05 // QUICK CALL TO ACTION
+          SECTION 05 // CONTACT & ORGANIZERS
+      ========================================================================== */}
+      <section id="contact" className="py-12 md:py-16 border-b-[3px] border-[#2d2d2d] bg-[#fdfbf7]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-xl mx-auto mb-8 md:mb-10">
+            <span className="inline-block bg-[#fff9c4] text-[#2d2d2d] px-3 py-0.5 font-kalam font-bold text-xs border border-[#2d2d2d] border-wobbly-sm mb-2">
+              05 // Contact
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-kalam font-bold text-[#2d2d2d] flex items-center justify-center gap-2">
+              <span>Organizing Leads</span>
+              <Phone className="w-7 h-7 text-[#ff4d4d]" />
+            </h2>
+            <div className="w-44 mx-auto mt-1">
+              <WavyUnderline className="text-[#ff4d4d]" />
+            </div>
+            <p className="text-base sm:text-lg font-patrick text-zinc-600 mt-2">
+              Have questions about team formation, rules, or Google Meet breakout rooms? Ping us directly!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+            {/* Contact 1 */}
+            <div className="bg-white border-[3px] border-[#2d2d2d] border-wobbly-sm p-5 shadow-hand text-center relative -rotate-1 hover:rotate-0 transition-transform">
+              <Pin />
+              <div className="w-10 h-10 bg-[#ff4d4d] text-white rounded-full border-2 border-[#2d2d2d] flex items-center justify-center mx-auto mb-2 font-kalam font-bold text-base">
+                SK
+              </div>
+              <h3 className="text-xl sm:text-2xl font-kalam font-bold text-[#2d2d2d]">
+                Saumya Khushlani
+              </h3>
+              <p className="text-xs font-patrick text-zinc-500 uppercase tracking-wider mb-3">
+                Lead Organizer // Zenith
+              </p>
+              <a
+                href="tel:8690375307"
+                className="inline-flex items-center gap-1.5 bg-[#fff9c4] hover:bg-[#ff4d4d] hover:text-white text-[#2d2d2d] px-3.5 py-1.5 font-kalam font-bold text-base border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand-sm transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>86903 75307</span>
+              </a>
+            </div>
+
+            {/* Contact 2 */}
+            <div className="bg-white border-[3px] border-[#2d2d2d] border-wobbly-md p-5 shadow-hand text-center relative rotate-1 hover:rotate-0 transition-transform">
+              <Tape rotate="1deg" />
+              <div className="w-10 h-10 bg-[#2d5da1] text-white rounded-full border-2 border-[#2d2d2d] flex items-center justify-center mx-auto mb-2 font-kalam font-bold text-base">
+                TA
+              </div>
+              <h3 className="text-xl sm:text-2xl font-kalam font-bold text-[#2d2d2d]">
+                Tanishq Agrawal
+              </h3>
+              <p className="text-xs font-patrick text-zinc-500 uppercase tracking-wider mb-3">
+                Coordinator // Zenith
+              </p>
+              <a
+                href="tel:7489164811"
+                className="inline-flex items-center gap-1.5 bg-[#fff9c4] hover:bg-[#2d5da1] hover:text-white text-[#2d2d2d] px-3.5 py-1.5 font-kalam font-bold text-base border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand-sm transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>74891 64811</span>
+              </a>
+            </div>
+
+            {/* Contact 3 */}
+            <div className="bg-white border-[3px] border-[#2d2d2d] border-wobbly-sm p-5 shadow-hand text-center relative -rotate-1 hover:rotate-0 transition-transform">
+              <Pin />
+              <div className="w-10 h-10 bg-[#2d2d2d] text-white rounded-full border-2 border-[#2d2d2d] flex items-center justify-center mx-auto mb-2 font-kalam font-bold text-base">
+                GS
+              </div>
+              <h3 className="text-xl sm:text-2xl font-kalam font-bold text-[#2d2d2d]">
+                Geetesh Singh
+              </h3>
+              <p className="text-xs font-patrick text-zinc-500 uppercase tracking-wider mb-3">
+                Coordinator // Zenith
+              </p>
+              <a
+                href="tel:9109974250"
+                className="inline-flex items-center gap-1.5 bg-[#fff9c4] hover:bg-[#2d2d2d] hover:text-white text-[#2d2d2d] px-3.5 py-1.5 font-kalam font-bold text-base border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand-sm transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span>91099 74250</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <span className="font-patrick text-sm sm:text-base text-zinc-600 inline-flex flex-wrap items-center justify-center gap-2 bg-white px-4 py-2 border border-[#2d2d2d] border-wobbly-sm shadow-hand-sm">
+              <Mail className="w-4 h-4 text-[#ff4d4d]" />
+              <span>Official Support Email:</span>
+              <a href="mailto:zenith.nitb.manit@gmail.com" className="font-bold text-[#2d5da1] hover:underline font-mono">
+                zenith.nitb.manit@gmail.com
+              </a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 06 // QUICK CALL TO ACTION
       ========================================================================== */}
       <section className="py-16 bg-[#fff9c4] border-b-[3px] border-[#2d2d2d] relative">
         <Tape rotate="1deg" />

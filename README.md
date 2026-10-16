@@ -111,3 +111,8 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - **Organized By:** Zenith — Programming Club of MANIT Bhopal
 - **Official Contact Email:** `zenith.nitb.manit@gmail.com`
 - **Location:** Maulana Azad National Institute of Technology (MANIT), Bhopal, MP 462003
+
+### Organizing Team Leads
+- **Saumya Khushlani:** `8690375307`
+- **Tanishq Agrawal:** `7489164811`
+- **Geetesh Singh:** `9109974250`

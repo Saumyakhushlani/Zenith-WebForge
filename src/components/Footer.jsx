@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Heart, Sparkles, Code2, MapPin, Mail, Building2, FileText, PenTool } from "lucide-react";
+import { ArrowUpRight, Heart, Sparkles, Code2, MapPin, Mail, Building2, FileText, PenTool, Phone } from "lucide-react";
 import { Tape, Pin, WavyUnderline } from "./HandDrawnSvg";
 
 export default function Footer() {
@@ -70,15 +70,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/#contact" className="hover:text-[#ff4d4d] flex items-center gap-2 group">
+                  <span className="text-[#ff4d4d]">&rarr;</span>
+                  <span>05. Contacts</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/register" className="hover:text-[#ff4d4d] flex items-center gap-2 group">
                   <span className="text-[#ff4d4d]">&rarr;</span>
-                  <span>05. Register</span>
+                  <span>06. Register</span>
                 </Link>
               </li>
               <li>
                 <Link href="/admin" className="hover:text-[#2d5da1] flex items-center gap-2 group text-zinc-600">
                   <span className="text-[#2d5da1]">&rarr;</span>
-                  <span>06. Admin Portal</span>
+                  <span>07. Admin Portal</span>
                 </Link>
               </li>
             </ul>
@@ -106,9 +112,27 @@ export default function Footer() {
                 </p>
                 <p className="flex items-center gap-1.5">
                   <Mail className="w-4 h-4 text-[#2d5da1] flex-shrink-0" />
-                  <a href="mailto:zenith.nitb.manit@gmail.com" className="hover:underline">zenith.nitb.manit@gmail.com</a>
+                  <a href="mailto:zenith.nitb.manit@gmail.com" className="hover:underline font-mono text-xs sm:text-sm">zenith.nitb.manit@gmail.com</a>
                 </p>
-                <p className="pt-2 text-sm text-[#2d5da1] font-bold">Virtual on Google Meet</p>
+
+                {/* Organizing Leads Direct Phone Numbers */}
+                <div className="pt-2.5 mt-2 border-t border-dashed border-[#2d2d2d] space-y-1 text-xs sm:text-sm">
+                  <span className="text-[11px] font-kalam font-bold text-[#ff4d4d] uppercase block">
+                    Organizing Team Contacts:
+                  </span>
+                  <p className="flex items-center justify-between">
+                    <span className="font-bold">Saumya Khushlani:</span>
+                    <a href="tel:8690375307" className="font-mono text-[#2d5da1] hover:underline font-bold">8690375307</a>
+                  </p>
+                  <p className="flex items-center justify-between">
+                    <span className="font-bold">Tanishq Agrawal:</span>
+                    <a href="tel:7489164811" className="font-mono text-[#2d5da1] hover:underline font-bold">7489164811</a>
+                  </p>
+                  <p className="flex items-center justify-between">
+                    <span className="font-bold">Geetesh Singh:</span>
+                    <a href="tel:9109974250" className="font-mono text-[#2d5da1] hover:underline font-bold">9109974250</a>
+                  </p>
+                </div>
               </div>
             </div>
 
