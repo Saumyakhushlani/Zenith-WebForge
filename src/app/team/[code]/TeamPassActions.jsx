@@ -28,42 +28,42 @@ export default function TeamPassActions({ teamCode, teamName, isFull = false }) 
   const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
 
   return (
-    <div className="mt-6 pt-5 border-t-2 border-dashed border-[#2d2d2d] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-        {/* Share Link to Join This Squad Button */}
-        <button
-          onClick={handleCopyLink}
-          type="button"
-          className={`inline-flex items-center justify-center gap-2 px-6 py-3 font-kalam font-bold text-lg sm:text-xl border-[3px] border-[#2d2d2d] border-wobbly-sm shadow-hand hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all ${
-            copiedLink 
-              ? "bg-emerald-600 text-white shadow-hand-sm" 
-              : "bg-[#ff4d4d] text-white"
-          }`}
-        >
-          {copiedLink ? <Check className="w-5 h-5 stroke-[3]" /> : <Copy className="w-5 h-5" />}
-          <span>{copiedLink ? "Link Copied!" : "Share Link to Join This Squad"}</span>
-        </button>
+    <div className="mt-5 pt-4 border-t-2 border-dashed border-[#2d2d2d] space-y-2.5">
+      {/* Share Link to Join This Squad Button */}
+      <button
+        onClick={handleCopyLink}
+        type="button"
+        className={`w-full inline-flex items-center justify-center gap-2 py-2.5 sm:py-3 px-4 font-kalam font-bold text-base sm:text-lg border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all ${
+          copiedLink 
+            ? "bg-emerald-600 text-white shadow-hand-sm" 
+            : "bg-[#ff4d4d] text-white hover:bg-[#e03a3a]"
+        }`}
+      >
+        {copiedLink ? <Check className="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]" /> : <Copy className="w-4 h-4 sm:w-5 sm:h-5" />}
+        <span>{copiedLink ? "Link Copied to Clipboard!" : "Share Link to Join This Squad"}</span>
+      </button>
 
-        {/* WhatsApp Share Button */}
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white hover:bg-[#1fae53] px-5 py-3 font-kalam font-bold text-base sm:text-lg border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand-sm hover:translate-x-[2px] hover:translate-y-[2px] transition-all -rotate-1 hover:rotate-0"
-        >
-          <Send className="w-4 h-4 fill-white" />
-          <span>Share on WhatsApp</span>
-        </a>
-      </div>
+      {/* WhatsApp Share Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white hover:bg-[#1fae53] py-2 sm:py-2.5 px-4 font-kalam font-bold text-sm sm:text-base border-2 border-[#2d2d2d] border-wobbly-sm shadow-hand hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all"
+      >
+        <Send className="w-4 h-4 fill-white" />
+        <span>Share on WhatsApp</span>
+      </a>
 
       {!isFull && (
-        <Link
-          href={`/register/join?code=${teamCode}`}
-          className="inline-flex items-center justify-center gap-1.5 text-base font-kalam font-bold text-[#2d5da1] hover:underline bg-white border border-[#2d2d2d] border-wobbly-sm px-4 py-2.5 shadow-hand-sm hover:bg-[#fff9c4] transition-colors"
-        >
-          <span>Fill Join Form</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
+        <div className="text-center pt-1">
+          <Link
+            href={`/register/join?code=${teamCode}`}
+            className="inline-flex items-center gap-1 text-xs sm:text-sm font-kalam font-bold text-[#2d5da1] hover:underline"
+          >
+            <span>Need to register yourself into this squad? Fill Join Form</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       )}
     </div>
   );
